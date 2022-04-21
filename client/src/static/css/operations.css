@@ -1,0 +1,16 @@
+.operation {
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  display: flex;
+  padding: 8px;
+  align-items: center;
+}
+
+.search__info {
+  display: flex;
+}
+
+.search__info b {
+  color: #ff2e00;
+}

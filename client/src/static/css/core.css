@@ -25,6 +25,8 @@
 
 body {
   overflow-x: hidden !important;
+  margin: 0;
+  background: #f8f8f8;
 }
 
 main {
@@ -112,7 +114,7 @@ img {
 }
 
 *::placeholder {
-  font-family: TTCommons-Regular;
+  font-family: TTCommons-Thin;
 }
 
 .bold {
@@ -163,11 +165,26 @@ img {
 }
 
 .default__input {
-  border: none;
+  border: 1px solid #FF2E00;
   display: block;
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 4px;
+  padding: 4px 0;
   margin: 8px 0;
+  width: 100%;
+  font-size: 16px;
+}
+
+.login__input {
+  width: 300px;
+  border-radius: 4px;
+  border: 1px solid #FF2E00;
+  padding: 4px;
+  display: block;
+}
+
+.default__input::placeholder {
+    padding-left: 4px;
+    color: #000;
 }
 
 .default__btn {
@@ -181,10 +198,12 @@ img {
 
 .default__link {
   text-decoration: none;
+  color: #AEAEAE;
 }
 
 .default__link:hover {
   text-decoration: underline;
+  color: #AEAEAE;
 }
 
 .default__link_white {
