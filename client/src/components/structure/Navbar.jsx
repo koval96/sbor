@@ -1,19 +1,23 @@
-import man from "../../static/images/man.svg";
+import { Link } from "react-router-dom";
+
+import logo from "../../static/images/logo.svg";
 import doubleArrow from "../../static/images/double_arrow.svg";
 
 function Navbar({ navPanelRef }) {
   return (
-    <div className="navbar__top">
+    <div className="navbar__top rel">
       <img
         src={doubleArrow}
         width="25px"
         onClick={() => {
-            if (navPanelRef.current) {
-                navPanelRef.current.style.display = "block"
-            }
+          if (navPanelRef.current) {
+            navPanelRef.current.style.display = "block";
+          }
         }}
       />
-      <img src={man} width="40px" />
+      <Link to={"/"}>
+        <img className="logo__top" src={logo} />
+      </Link>
     </div>
   );
 }

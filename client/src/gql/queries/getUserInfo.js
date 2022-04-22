@@ -9,33 +9,26 @@ export const GET_USER_INFO = gql`
       lastName
       type
       isStaff
-      cart {
+      operations {
         id
         name
-        ingredients {
-          name
-          type
-        }
-        volume
-        slices
-        size
-      }
-
-      orders {
-        id
-        phone
-        adress
-        status
-        pizzas {
-          id
-          name
-          ingredients {
-            name
+        age
+        description
+        searchStart
+        head {
+            id
+            firstName
+            lastName
             type
           }
-          volume
-          slices
-          size
+        volunteers {
+          id
+          firstName
+          lastName
+          type
+        }
+        facility {
+          name
         }
       }
     }

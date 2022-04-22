@@ -4,8 +4,10 @@ import graphql_jwt
 from main.gql.auth.queries import AuthQueries
 from main.gql.auth.mutations import AuthMutations
 
+from main.gql.operations.queries import OperationQueries
 
-class Query(AuthQueries):
+
+class Query(AuthQueries, OperationQueries):
     pass
 
 

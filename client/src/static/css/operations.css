@@ -3,14 +3,48 @@
   background: #fff;
   border-radius: 4px;
   display: flex;
-  padding: 8px;
+  padding: 16px;
   align-items: center;
+}
+
+.search__info b {
+  color: #ff2e00;
 }
 
 .search__info {
   display: flex;
 }
 
-.search__info b {
-  color: #ff2e00;
+.missing__name_container {
+  display: flex;
+  justify-content: space-between;
 }
+
+.search__info_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.read_more__mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .missing__name_container {
+    display: block;
+  }
+
+  .read_more__desktop {
+    display: none;
+  }
+
+  .read_more__mobile {
+    display: block;
+  }
+
+  .search__info {
+    display: none;
+  }
+}
+
+
