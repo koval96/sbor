@@ -6,11 +6,12 @@ import NavPanel from "./components/structure/NavPanel";
 import Navbar from "./components/structure/Navbar";
 import Operations from "./components/pages/Operations";
 import Login from "./components/pages/Login";
+import AboutOperations from "./components/pages/AboutOperation";
 import ProtectedRoute from "./components/utils/ProtectedRoute";
-
 import ScrollToTop from "./components/utils/ScrollToTop";
 
 import "./static/css/structure.css";
+
 
 function App() {
   const navPanelRef = useRef(0);
@@ -28,6 +29,13 @@ function App() {
           <ScrollToTop />
           <div className="content w-100">
             <Switch>
+              <Route path="/" exact>
+                {/* <Operations /> */}
+                <AboutOperations />
+              </Route>
+              <Route path="/operations/:id">
+                <AboutOperations />
+              </Route>
               {/* <Route path="/" exact>
                 <Operations />
               </Route> */}
