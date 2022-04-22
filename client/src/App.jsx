@@ -5,8 +5,10 @@ import NavPanel from "./components/structure/NavPanel";
 import Navbar from "./components/structure/Navbar";
 import Operations from "./components/pages/Operations";
 import Login from "./components/pages/Login";
+import AboutOperations from "./components/pages/AboutOperation";
 
 import "./static/css/structure.css";
+
 
 function App() {
   const navPanelRef = useRef(0);
@@ -19,7 +21,11 @@ function App() {
           <div className="content w-100">
             <Switch>
               <Route path="/" exact>
-                <Operations />
+                {/* <Operations /> */}
+                <AboutOperations />
+              </Route>
+              <Route path="operations">
+                <AboutOperations />
               </Route>
               <Route path="/login">
                 <Login />

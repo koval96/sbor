@@ -1,10 +1,11 @@
-.operation {
+.about_operation {
   width: 100%;
   background: #fff;
   border-radius: 4px;
   display: flex;
-  padding: 8px;
+  padding: 15px;
   align-items: center;
+
 }
 
 .search__info {
@@ -13,4 +14,71 @@
 
 .search__info b {
   color: #ff2e00;
+}
+
+.about_lost {
+  margin-top: 10px;
+}
+
+.about_info {
+  width: 100%;
+  padding: 10px;
+}
+
+.about_operation_1 {
+  padding: 5px;
+  background: #fff;
+  display: flex;
+  column-gap: 20px;
+  flex-direction: row;
+  grid-template-columns: 158px 1fr;
+
+}
+
+.about_start {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.participate_button {
+  border: none;
+  width: 200px;
+  border-radius: 5px;
+  background-color: #ff2e00;
+  color: white;
+}
+
+.operation_plan {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  column-gap: 20%;
+}
+
+.map {
+  align-self: end;
+}
+
+@media screen and (max-width: 768px) {
+  .about_operation_1 {
+    display: block;
+
+  }
+
+  .about_start {
+    display: block;
+  }
+
+  .about_header {
+    display: block;
+  }
+
+  .operation_plan {
+    display: block;
+  }
 }
