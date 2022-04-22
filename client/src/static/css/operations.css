@@ -3,14 +3,19 @@
   background: #fff;
   border-radius: 4px;
   display: flex;
-  padding: 15px;
+  padding: 16px;
   align-items: center;
 
+}
+
+.search__info b {
+  color: #ff2e00;
 }
 
 .search__info {
   display: flex;
 }
+
 
 .search__info b {
   color: #ff2e00;
@@ -37,14 +42,18 @@
 
 .about_start {
   margin-top: 10px;
+}
+.missing__name_container {
   display: flex;
   justify-content: space-between;
 }
 
-.about_header {
+
+.search__info_container {
   display: flex;
   justify-content: space-between;
 }
+
 
 .participate_button {
   border: none;
@@ -64,7 +73,25 @@
   align-self: end;
 }
 
-@media screen and (max-width: 768px) {
+
+
+@media (max-width: 768px) {
+  .missing__name_container {
+    display: block;
+  }
+
+  .read_more__desktop {
+    display: none;
+  }
+
+  .read_more__mobile {
+    display: block;
+  }
+
+  .search__info {
+    display: none;
+  }
+  
   .about_operation_1 {
     display: block;
 
@@ -76,6 +103,10 @@
 
   .about_header {
     display: block;
+  }
+  
+  .read_more__mobile {
+    display: none;
   }
 
   .operation_plan {

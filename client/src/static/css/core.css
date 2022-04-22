@@ -27,6 +27,7 @@ body {
   overflow-x: hidden !important;
   margin: 0;
   background: #f8f8f8;
+  position: relative;
 }
 
 main {
@@ -125,6 +126,10 @@ img {
   font-family: TTCommons-Semi;
 }
 
+.space_between {
+  justify-content: space-between;
+}
+
 .heading__regular {
   font-size: 40px;
 }
@@ -164,6 +169,17 @@ img {
   background: transparent;
 }
 
+.non_link {
+  text-decoration: none;
+  color: #000;
+}
+
+.non_link:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+
 .default__input {
   border: 1px solid #FF2E00;
   display: block;
@@ -192,7 +208,7 @@ img {
   border-radius: 4px;
   padding: 4px 8px;
   font-family: TTCommons-Bold;
-  background: #000;
+  background: #FF2E00;
   color: #fff;
 }
 
