@@ -1,0 +1,41 @@
+.profile_header {
+    display: flex;
+    flex-direction: row;
+}
+
+img {
+    width: 40px;
+}
+
+.name {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.surname {
+    margin-left: 8px;
+}
+
+
+p {
+    font-size: 13px !important;
+}
+
+.label {
+    font-size: 6px !important;
+}
+
+.profile_name,
+.contacts,
+.skills,
+.last_operation {
+    display: flex;
+    padding: 15px;
+}
+
+.contacts,
+.skills,
+.last_operation {
+    border-left: 1px solid lightgray
+}

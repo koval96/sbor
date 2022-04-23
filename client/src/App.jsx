@@ -6,6 +6,8 @@ import NavPanel from "./components/structure/NavPanel";
 import Navbar from "./components/structure/Navbar";
 import Operations from "./components/pages/Operations";
 import Login from "./components/pages/Login";
+import Courses from "./components/pages/Courses";
+import Profile from "./components/pages/Profile";
 import AboutOperations from "./components/pages/AboutOperation";
 import ProtectedRoute from "./components/utils/ProtectedRoute";
 import ScrollToTop from "./components/utils/ScrollToTop";
@@ -31,7 +33,7 @@ function App() {
             <Switch>
               <Route path="/" exact>
                 {/* <Operations /> */}
-                <AboutOperations />
+                <Profile />
               </Route>
               <Route path="/operations/:id">
                 <AboutOperations />
