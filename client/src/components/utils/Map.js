@@ -17,15 +17,9 @@ export const MapDiv = (props) => {
           ns: "ymaps",
         }}
       >
-        <Map
-          state={mapState}
-          modules={["geolocation", "geocode"]}
-        >
-
-
+        <Map state={mapState} modules={["geolocation", "geocode"]}>
           <Placemark geometry={[56.326887, 44.005986]} />
         </Map>
-
       </YMaps>
     </div>
   );

@@ -1,7 +1,9 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { toast } from "react-hot-toast";
 import { Link, useLocation } from "react-router-dom";
+
+import useWindowDimensions from "../utils/useWindowDimensions";
 
 import { UserContext } from "../auth/AuthLayer";
 import { REVOKE_TOKEN } from "../../gql/mutations/revokeToken";
@@ -12,7 +14,8 @@ import man from "../../static/images/man.svg";
 
 function NavPanel({ navPanelRef }) {
   const { user, setUser } = useContext(UserContext);
-  const loc = useLocation()
+  const { height, width } = useWindowDimensions();
+  const loc = useLocation();
   const [revokeToken, { loading }] = useMutation(REVOKE_TOKEN, {
     onCompleted: () => {
       toast.success("Вы успешно вышли из аккаунта");
@@ -27,9 +30,15 @@ function NavPanel({ navPanelRef }) {
 
   function isLinkActive(pathname) {
     if (loc.pathname.includes(pathname)) {
-      return true
+      return true;
     }
-    return false
+    return false;
+  }
+
+  function closeMenu() {
+    if (width < 768) {
+      navPanelRef.current.style.display = "none";
+    }
   }
 
   return (
@@ -39,7 +48,7 @@ function NavPanel({ navPanelRef }) {
           className="d-flex"
           style={{ justifyContent: "space-between", position: "relative" }}
         >
-          <Link to={"/"}>
+          <Link to={"/"} onClick={() => closeMenu()}>
             <img src={logo} className="navbar__logo" />
           </Link>
           <p></p>
@@ -62,20 +71,25 @@ function NavPanel({ navPanelRef }) {
                 <b style={{ fontSize: "23px" }}>Иван Иваныч</b> <br />
                 <a
                   className="default__link"
-                  onClick={() =>
+                  onClick={() => {
                     revokeToken({
                       variables: {
                         refreshToken: localStorage.getItem("refreshToken"),
                       },
-                    })
-                  }
+                    });
+                    closeMenu();
+                  }}
                 >
                   Выйти
                 </a>
               </div>
             </>
           ) : (
-            <Link className="default__link" to={"/login"}>
+            <Link
+              className="default__link"
+              to={"/login"}
+              onClick={() => closeMenu()}
+            >
               Войти
             </Link>
           )}
@@ -83,8 +97,16 @@ function NavPanel({ navPanelRef }) {
         {user.username && (
           <>
             <hr />
-            <Link className="non_link" to={"/operations"}>
-              <div className={`menu__item ${isLinkActive("/operations") && "menu__item_active"}`}>
+            <Link
+              className="non_link"
+              to={"/operations"}
+              onClick={() => closeMenu()}
+            >
+              <div
+                className={`menu__item ${
+                  isLinkActive("/operations") && "menu__item_active"
+                }`}
+              >
                 <svg
                   width="16"
                   height="20"

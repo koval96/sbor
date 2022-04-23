@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import man from "../../static/images/man.svg";
 
 function Operation({ operation }) {
@@ -7,12 +9,21 @@ function Operation({ operation }) {
       <div className="operation__info ms-4 w-100">
         <div className="w-100 missing__name_container">
           <h2 className="missing__name">
+            <h2 style={{ color: "#ff2e00" }}>{operation.status}</h2>
             {operation.name}, {operation.age} лет
           </h2>
-          <button className="default__btn read_more__desktop">Подробнее</button>
+          <Link to={`/operations/${operation.id}`} className="non_link read_more__desktop">
+            <button className="default__btn">
+              Подробнее
+            </button>
+          </Link>
         </div>
         <p>{operation.description}</p>
-        <button className="default__btn read_more__mobile">Подробнее</button>
+        <Link to={`/operations/${operation.id}`} className="non_link read_more__mobile">
+            <button className="default__btn">
+              Подробнее
+            </button>
+          </Link>
         <div className="search__info_container">
           <div>
             <div className="search__info">

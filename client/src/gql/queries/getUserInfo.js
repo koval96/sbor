@@ -10,25 +10,18 @@ export const GET_USER_INFO = gql`
       type
       isStaff
       operations {
-        id
-        name
-        age
-        description
-        searchStart
-        head {
+        operation {
+          id
+          name
+          age
+          description
+          searchStart
+          head {
             id
             firstName
             lastName
             type
           }
-        volunteers {
-          id
-          firstName
-          lastName
-          type
-        }
-        facility {
-          name
         }
       }
     }
