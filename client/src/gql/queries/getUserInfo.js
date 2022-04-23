@@ -9,6 +9,19 @@ export const GET_USER_INFO = gql`
       lastName
       type
       isStaff
+      phone
+      tg
+      events {
+        id
+        title
+        type
+        head {
+          firstName
+          lastName
+        }
+        dateStart
+        description
+      }
       operations {
         operation {
           id
@@ -16,6 +29,7 @@ export const GET_USER_INFO = gql`
           age
           description
           searchStart
+          adress
           head {
             id
             firstName

@@ -34,6 +34,7 @@ function AboutOperations() {
       setOperation(data.getOperationById);
     },
     variables: { id },
+    fetchPolicy: 'cache-and-network'
   });
   useEffect(() => {
     if (user.operations) {

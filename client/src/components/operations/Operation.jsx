@@ -44,7 +44,7 @@ function Operation({ operation }) {
             </div>
             <div className="search__info">
               <b>Зарегестрировано:</b>&nbsp;
-              <p>{operation.volunteers.length} человек(-а)</p>
+              <p>{operation.volunteers && operation.volunteers.length} человек(-а)</p>
             </div>
           </div>
         </div>

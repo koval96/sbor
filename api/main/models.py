@@ -11,7 +11,9 @@ class ExtendedUser(AbstractUser):
     education = models.CharField(max_length=100, null=True)
     type = models.CharField(max_length=10)
     operations = models.ManyToManyField("Volunteer", related_name="user_operations", blank=True)
-
+    events = models.ManyToManyField("Event", related_name="user_events", blank=True)
+    phone = models.CharField(max_length=20, default="")
+    tg = models.CharField(max_length=100, default="")
 
     USERNAME_FIELD = "username"
     EMAIL_FIELD = "email"
@@ -19,9 +21,12 @@ class ExtendedUser(AbstractUser):
 class Facility(models.Model):
     name = models.CharField(max_length=100)
 
-class Course(models.Model):
+class Event(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
+    date_start = models.DateField(auto_now_add=True)
+    head = models.ForeignKey(ExtendedUser, null=True, on_delete=models.DO_NOTHING, blank=True)
+    type = models.CharField(max_length=50, default="")
 
 class Volunteer(models.Model):
     user = models.ForeignKey(ExtendedUser, on_delete=models.DO_NOTHING)
@@ -34,6 +39,7 @@ class Volunteer(models.Model):
 
 class Operation(models.Model):
     name = models.CharField(max_length=100)
+    image_url = models.URLField(default="")
     age = models.IntegerField()
     description = models.TextField()
     search_start = models.DateField()

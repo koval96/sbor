@@ -10,7 +10,9 @@ import Courses from "./components/pages/Courses";
 import Profile from "./components/pages/Profile";
 import AboutOperations from "./components/pages/AboutOperation";
 import ProtectedRoute from "./components/utils/ProtectedRoute";
+import Register from "./components/pages/Register";
 import ScrollToTop from "./components/utils/ScrollToTop";
+import CreateOperation from "./components/pages/CreateOperation";
 
 import "./static/css/structure.css";
 
@@ -30,24 +32,27 @@ function App() {
           <ScrollToTop />
           <div className="content w-100">
             <Switch>
-              <Route path="/" exact>
+              <ProtectedRoute path="/" exact>
                 {/* <Operations /> */}
                 <Profile />
-              </Route>
-              <ProtectedRoute path="/operations/:id">
-                <AboutOperations />
               </ProtectedRoute>
-              {/* <Route path="/" exact>
-                <Operations />
-              </Route> */}
+              <ProtectedRoute path="/events">
+                <Courses />
+              </ProtectedRoute>
               <ProtectedRoute path="/operations" exact>
                 <Operations />
+              </ProtectedRoute>
+              <ProtectedRoute path="/operations/create">
+                <CreateOperation />
               </ProtectedRoute>
               <ProtectedRoute path="/operations/:id">
                 <AboutOperations />
               </ProtectedRoute>
               <Route path="/login">
                 <Login />
+              </Route>
+              <Route path="/register">
+                <Register />
               </Route>
             </Switch>
           </div>
