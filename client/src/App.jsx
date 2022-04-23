@@ -13,6 +13,7 @@ import ProtectedRoute from "./components/utils/ProtectedRoute";
 import ScrollToTop from "./components/utils/ScrollToTop";
 
 import "./static/css/structure.css";
+import News from "./components/operations/News";
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
             <Switch>
               <Route path="/" exact>
                 {/* <Operations /> */}
-                <Profile />
+                <News />
               </Route>
               <Route path="/operations/:id">
                 <AboutOperations />
