@@ -1,10 +1,12 @@
 .profile_header {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 4fr 5fr 5fr 3fr;
+    width: 100%;
+    background: white;
 }
 
-img {
-    width: 40px;
+.profile_image {
+    width: 40%;
 }
 
 .name {
@@ -13,29 +15,26 @@ img {
     padding: 0;
 }
 
-.surname {
-    margin-left: 8px;
-}
-
-
-p {
-    font-size: 13px !important;
-}
-
-.label {
-    font-size: 6px !important;
+.info_block {
+    margin: auto 0 auto 0;
 }
 
 .profile_name,
 .contacts,
 .skills,
-.last_operation {
+.last_search {
+    margin: auto 0 auto 0;
     display: flex;
     padding: 15px;
+    justify-content: space-between;
 }
 
 .contacts,
 .skills,
-.last_operation {
-    border-left: 1px solid lightgray
+.last_search {
+    border-left: 1px solid lightgray;
+}
+
+.surname {
+    margin-left: 10px;
 }
