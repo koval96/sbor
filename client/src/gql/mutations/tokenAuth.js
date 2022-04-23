@@ -13,25 +13,21 @@ export const TOKEN_AUTH = gql`
         type
         isStaff
         operations {
-          id
-          name
-          age
-          description
-          searchStart
-          head {
+          operation {
             id
-            firstName
-            lastName
-            type
-          }
-          volunteers {
-            id
-            firstName
-            lastName
-            type
-          }
-          facility {
             name
+            age
+            description
+            searchStart
+            head {
+              id
+              firstName
+              lastName
+              type
+            }
+            facility {
+              name
+            }
           }
         }
       }

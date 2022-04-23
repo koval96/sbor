@@ -179,6 +179,14 @@ img {
   color: #000;
 }
 
+.cover__screen {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
 
 .default__input {
   border: 1px solid #FF2E00;
@@ -210,6 +218,14 @@ img {
   font-family: TTCommons-Bold;
   background: #FF2E00;
   color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.default__btn_outline {
+  background: transparent;
+  border: 1px solid #FF2E00;
+  color: #FF2E00;
 }
 
 .default__link {

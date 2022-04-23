@@ -15,7 +15,6 @@ import ScrollToTop from "./components/utils/ScrollToTop";
 import "./static/css/structure.css";
 import News from "./components/operations/News";
 
-
 function App() {
   const navPanelRef = useRef(0);
   return (
@@ -36,14 +35,17 @@ function App() {
                 {/* <Operations /> */}
                 <News />
               </Route>
-              <Route path="/operations/:id">
+              <ProtectedRoute path="/operations/:id">
                 <AboutOperations />
-              </Route>
+              </ProtectedRoute>
               {/* <Route path="/" exact>
                 <Operations />
               </Route> */}
               <ProtectedRoute path="/operations" exact>
                 <Operations />
+              </ProtectedRoute>
+              <ProtectedRoute path="/operations/:id">
+                <AboutOperations />
               </ProtectedRoute>
               <Route path="/login">
                 <Login />

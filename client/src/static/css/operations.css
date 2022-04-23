@@ -8,6 +8,15 @@
 
 }
 
+.operation {
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  display: flex;
+  padding: 16px;
+  align-items: center;
+}
+
 .search__info b {
   color: #ff2e00;
 }
@@ -73,7 +82,14 @@
   align-self: end;
 }
 
+.read_more__mobile {
+  display: none;
+}
 
+.about_info_volunteer {
+  display: flex;
+  justify-content: space-between;
+}
 
 @media (max-width: 768px) {
   .missing__name_container {
@@ -91,25 +107,29 @@
   .search__info {
     display: none;
   }
+
+  .search__info_descr {
+    display: block;
+  }
   
   .about_operation_1 {
     display: block;
 
   }
 
-  .about_start {
+  /* .about_start {
     display: block;
-  }
+  } */
 
   .about_header {
     display: block;
   }
   
-  .read_more__mobile {
-    display: none;
+  .operation_plan {
+    display: block;
   }
 
-  .operation_plan {
+  .about_info_volunteer {
     display: block;
   }
 }
