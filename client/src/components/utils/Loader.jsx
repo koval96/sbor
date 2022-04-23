@@ -4,7 +4,7 @@ function Loader({ loading }) {
         {loading && (
           <>
             <div className="cover__screen"></div>
-            <div className="loader spinner-border text-light" role="status"></div>
+            <div className="loader spinner-border text-dark" role="status"></div>
           </>
         )}
       </>
