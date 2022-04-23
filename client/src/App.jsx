@@ -11,7 +11,7 @@ import Profile from "./components/pages/Profile";
 import AboutOperations from "./components/pages/AboutOperation";
 import ProtectedRoute from "./components/utils/ProtectedRoute";
 import ScrollToTop from "./components/utils/ScrollToTop";
-
+import NewsCard from "./components/operations/NewsCard"
 import "./static/css/structure.css";
 import News from "./components/operations/News";
 
@@ -32,7 +32,6 @@ function App() {
           <div className="content w-100">
             <Switch>
               <Route path="/" exact>
-                {/* <Operations /> */}
                 <News />
               </Route>
               <ProtectedRoute path="/operations/:id">
