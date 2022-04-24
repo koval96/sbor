@@ -6,6 +6,7 @@ import NavPanel from "./components/structure/NavPanel";
 import Navbar from "./components/structure/Navbar";
 import Operations from "./components/pages/Operations";
 import Login from "./components/pages/Login";
+import Contacts from "./components/pages/Contacts";
 import Courses from "./components/pages/Courses";
 import Profile from "./components/pages/Profile";
 import AboutOperations from "./components/pages/AboutOperation";
@@ -32,7 +33,7 @@ function App() {
           <div className="content w-100">
             <Switch>
               <Route path="/" exact>
-                <News />
+                <Contacts />
               </Route>
               <ProtectedRoute path="/operations/:id">
                 <AboutOperations />
