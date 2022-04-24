@@ -22,7 +22,7 @@ function Course({ event, setEvents }) {
     },
   });
   return (
-    <div className="course">
+    <div className="course mt-2">
       <div className="course_header">
         <h2 className="course_title">{event.title}</h2>
         <button

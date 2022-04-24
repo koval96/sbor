@@ -17,7 +17,7 @@ function NewsList() {
       <h2 className="mb-2">Новости</h2>
       {news.map((n, idx) => {
         return (
-          <div className="about_news mt-1" key={idx}>
+          <div className="about_news mt-2" key={idx}>
             <h3 className="title">{n.title}</h3>
             <div className="author">
               <p className="label">Автор:</p>

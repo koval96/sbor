@@ -14,7 +14,6 @@ function AuthLayer({ children }) {
   const [getUserInfo, { loading: infoLoading }] = useLazyQuery(GET_USER_INFO, {
     onCompleted: (data) => {
       setUser(Object.assign({}, data.getUserInfo, user));
-      console.log(data.getUserInfo)
       localStorage.setItem("auth", "success");
     },
     fetchPolicy: "cache-and-network",
