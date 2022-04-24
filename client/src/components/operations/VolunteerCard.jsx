@@ -26,7 +26,7 @@ function VolunteerCard({ operation, volunteer, setOperation }) {
     });
   }, [volunteerStatus]);
   return (
-    <div className="about_operation_1">
+    <div className="about_operation_1 mt-2">
       <img src={man} />
       <div className="about_info about_info_volunteer mt-1">
         <h4>

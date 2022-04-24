@@ -113,6 +113,14 @@
   color: #ff2e00;
 }
 
+.image__box img {
+  width: 100%;
+  object-fit: cover;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
 @media (min-width: 768px) {
   .navbar__main {
     display: block !important;

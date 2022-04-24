@@ -7,6 +7,8 @@ import Loader from "../utils/Loader";
 import { MapDiv } from "../utils/Map";
 import { GET_OPERATION_BY_ID } from "../../gql/queries/getOperationById";
 import { JOIN_OPERATION } from "../../gql/mutations/joinOperation";
+import { CHANGE_OPERATION_STATUS } from "../../gql/mutations/changeOperationStatus";
+
 import { UserContext } from "../auth/AuthLayer";
 
 import "../../static/css/operations.css";
@@ -29,11 +31,23 @@ function AboutOperations() {
       },
     }
   );
+  const [changeOperationStatus, { loading: changeLoading }] = useMutation(
+    CHANGE_OPERATION_STATUS,
+    {
+      // onCompleted: (data) => {
+      //   setOperation({
+      //     ...operation,
+      //     status: data.changeOperationStatus.operation.status,
+      //   });
+      // },
+    }
+  );
   const { loading } = useQuery(GET_OPERATION_BY_ID, {
     onCompleted: (data) => {
       setOperation(data.getOperationById);
     },
     variables: { id },
+    fetchPolicy: "cache-and-network",
   });
   useEffect(() => {
     if (user.operations) {
@@ -42,6 +56,15 @@ function AboutOperations() {
       );
     }
   }, [user]);
+
+  useEffect(() => {
+    changeOperationStatus({
+      variables: {
+        id: operation.id,
+        status: operation.status,
+      },
+    });
+  }, [operation.status]);
   return (
     <div>
       {loading ? (
@@ -49,14 +72,38 @@ function AboutOperations() {
       ) : (
         <div>
           <div className="about_operation_1">
-            <img src={man} width="120px" />
+            <div className="image__box">
+              <img src={operation.imageUrl ? operation.imageUrl : man} />
+            </div>
             <div className="about_info">
               <div className="about_header">
-                <h2 className="missing__name">
-                  <h2 style={{ color: "#FF2E00" }}>{operation.status}.</h2>{" "}
-                  {operation.name}
-                </h2>
-                {hasJoined ? (
+                <div>
+                  {user.type !== "admin" && (
+                    <>
+                      <h2 style={{ color: "#FF2E00" }}>{operation.status}.</h2>{" "}
+                    </>
+                  )}
+                  {user.type == "admin" && (
+                    <select
+                      className="default__btn default__btn_outline p-2"
+                      value={operation.status}
+                      onChange={(e) =>
+                        setOperation({ ...operation, status: e.target.value })
+                      }
+                    >
+                      <option disabled selected>
+                        Статус
+                      </option>
+                      <option value="Не найден">Не найден</option>
+                      <option value="Наден. Погиб">Наден. Погиб</option>
+                      <option value="Найден. Жив">Найден. Жив</option>
+                    </select>
+                  )}
+                  <h2>
+                    {operation.name}, возраст: {operation.age}
+                  </h2>
+                </div>
+                {user.type !== "admin" && (
                   <button
                     className="participate_button"
                     onClick={() =>
@@ -68,21 +115,7 @@ function AboutOperations() {
                       })
                     }
                   >
-                    Отказаться
-                  </button>
-                ) : (
-                  <button
-                    className="participate_button"
-                    onClick={() =>
-                      joinOperation({
-                        variables: {
-                          username: user.username,
-                          id: operation.id,
-                        },
-                      })
-                    }
-                  >
-                    Записаться
+                    {hasJoined ? "Отказаться" : "Записаться"}
                   </button>
                 )}
               </div>
@@ -115,6 +148,10 @@ function AboutOperations() {
                       человек(-а)
                     </p>
                   </div>
+                  <div className="search__info search__info_descr">
+                    <b>Приметы:</b>&nbsp;
+                    <p>{operation.appearance}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -130,19 +167,36 @@ function AboutOperations() {
             <div className="map">
               <b>Место сбора</b>
               <br />
-              <MapDiv />
+              <MapDiv
+                coords={
+                  operation.coords &&
+                  operation.coords.split(",").map((c) => parseFloat(c))
+                }
+              />
             </div>
           </div>
-          <hr />
-          <div className="operation__participants">
-            <h2>Участники операции</h2>
-            {operation.volunteers && operation.volunteers.map((volunteer, idx) => {
-              return <VolunteerCard operation={operation} volunteer={volunteer} setOperation={setOperation} key={idx} />;
-            })}
-            {operation.volunteers && operation.volunteers.length == 0 && (
-                <p>Нет людей</p>
-            )}
-          </div>
+          {user.type == "admin" && (
+            <>
+              <hr />
+              <div className="operation__participants">
+                <h2>Участники операции</h2>
+                {operation.volunteers &&
+                  operation.volunteers.map((volunteer, idx) => {
+                    return (
+                      <VolunteerCard
+                        operation={operation}
+                        volunteer={volunteer}
+                        setOperation={setOperation}
+                        key={idx}
+                      />
+                    );
+                  })}
+                {operation.volunteers && operation.volunteers.length == 0 && (
+                  <p>Нет людей</p>
+                )}
+              </div>
+            </>
+          )}
         </div>
       )}
     </div>

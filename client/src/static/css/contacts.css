@@ -1,26 +1,27 @@
-.info-block {
-    display: flex;
-    flex-direction: row;
+
+  display: flex;
+  flex-direction: row;
 }
 
 .info-block p b {
-    color: #ff2e00
+  color: #ff2e00;
 }
 
 .value {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .hrefs {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .href {
-    text-decoration: none;
-    color: black
+  text-decoration: none;
+  color: black;
 }
 
 .social_medias {
-    color: #ff2e00
+  color: #ff2e00;
 }
+

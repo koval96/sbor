@@ -23,6 +23,10 @@ class Register(graphene.Mutation):
         first_name = graphene.String(required=True)
         last_name = graphene.String(required=True)
         email = graphene.String(required=True)
+        age = graphene.Int(required=True)
+        education = graphene.String(required=True)
+        tg = graphene.String(required=True)
+        phone = graphene.String(required=True)
 
     ok = graphene.Boolean()
 
@@ -68,6 +72,7 @@ class Register(graphene.Mutation):
                                            tg_id=tg_id,
                                            phone=phone,
                                            education=education)
+
         user.set_password(password)
         user.save()
         return Register(ok=True)

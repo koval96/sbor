@@ -12,6 +12,19 @@ export const TOKEN_AUTH = gql`
         lastName
         type
         isStaff
+        phone
+        tg
+        events {
+          id
+          type
+          title
+          head {
+            firstName
+            lastName
+          }
+          dateStart
+          description
+        }
         operations {
           operation {
             id
@@ -19,6 +32,7 @@ export const TOKEN_AUTH = gql`
             age
             description
             searchStart
+            adress
             head {
               id
               firstName
