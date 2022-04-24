@@ -6,7 +6,6 @@ source venv/bin/activate
 source venv/bin/activate
 pip install -r api/requirements.txt
 source venv/bin/activate
-venv/Scripts/activate.bat
 python api/manage.py runserver &
 cd client
 npm install
