@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 import toast from "react-hot-toast";
+import Loader from "../utils/Loader";
 
 import { REGISTER } from "../../gql/mutations/register";
 
@@ -39,6 +40,7 @@ function Register() {
   });
   return (
     <div className="login__container">
+      <Loader loading={loading} />
       <h1>Регистрация</h1>
       <form
         onSubmit={(e) => {

@@ -69,7 +69,7 @@ function NavPanel({ navPanelRef }) {
         <div className="d-flex">
           {user.username ? (
             <>
-              <img src={man} />
+              <img src={man} width="60px" />
               <div className="ms-3">
                 <b style={{ fontSize: "23px" }}>
                   {user.lastName} {user.firstName}
