@@ -2,7 +2,8 @@ from pydoc import describe
 import graphene
 import graphql_jwt
 import json
-
+from volounters_nn_bot.bot_commands import send_all_text
+from volounters_nn_bot.bot import bot
 from main.models import ExtendedUser, Facility, Operation, Volunteer
 from main.gql.types import OperationType, VolunteerType
 
@@ -104,6 +105,8 @@ class CreateOperation(graphene.Mutation):
         head.operations.add(volunteer)
         operation.volunteers.add(volunteer)
         operation.head.add(head)
+        text = f"Пропал человек \n Внешность: {appearance} \n Адрес: {adress} \n Начало поисков {search_start}"
+        send_all_text(bot=bot, text=text)
         return CreateOperation(id=operation.id)
 
 
