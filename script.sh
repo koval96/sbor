@@ -1,7 +1,7 @@
 #!/bin/bash
 git clone https://github.com/koval96/sbor
-git checkout install
 cd sbor
+git checkout install
 source venv/bin/activate
 source venv/bin/activate
 pip install -r api/requirements.txt
