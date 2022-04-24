@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import man from "../../static/images/man.svg";
 
 function Operation({ operation }) {
+  console.log(operation)
   return (
     <div className="operation mt-2">
       <div className="image__box">

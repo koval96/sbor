@@ -33,6 +33,9 @@ export const TOKEN_AUTH = gql`
             description
             searchStart
             adress
+            volunteers {
+              id
+            }
             head {
               id
               firstName

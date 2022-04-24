@@ -60,7 +60,7 @@ class Operation(models.Model):
     facility = models.ManyToManyField(Facility, related_name="event_facility", blank=True)
     plan = models.TextField(default="")
     coords = models.CharField(max_length=100, default="", blank=True)
-    status = models.CharField(max_length=50, default="Не найден")
+    status = models.CharField(max_length=50, default="Не найден(-а)")
 
     class Meta:
         ordering = ("-id",)

@@ -101,9 +101,9 @@ function AboutOperations() {
                       <option disabled selected>
                         Статус
                       </option>
-                      <option value="Не найден">Не найден</option>
-                      <option value="Наден. Погиб">Наден. Погиб</option>
-                      <option value="Найден. Жив">Найден. Жив</option>
+                      <option value="Не найден(-а)">Не найден(-а)</option>
+                      <option value="Наден(-а). Погиб(-ла)">Наден(-а). Погиб(-ла)</option>
+                      <option value="Найден(-а). Жив(-а)">Найден(-а). Жив(-а)</option>
                     </select>
                   )}
                   <h2>

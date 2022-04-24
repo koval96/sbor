@@ -7,35 +7,23 @@ function Contacts() {
         <p>
           <b>Горячая линия:</b>
         </p>
-        <p className="value">+7 (777) 777-77-77</p>
-      </div>
-      <div className="info-block">
-        <p>
-          <b>Call-center:</b>
-        </p>
-        <p className="value">+7 (777) 777-77-77</p>
-      </div>
-      <div className="info-block">
-        <p>
-          <b>Телефон организаторов:</b>
-        </p>
-        <p className="value">+7 (777) 777-77-77</p>
+        <p className="value">+7 (904) 045-51-51</p>
       </div>
       <div>
         <p>
           <b className="social_medias">Наши сосцети:</b>
         </p>
-        <div className="hrefs">
-          <a href="#" className="href">
-            VK
-          </a>
-          <a href="#" className="href">
-            Youtube
-          </a>
-          <a href="#" className="href">
-            Instagram
-          </a>
-        </div>
+        <a href="#" className="href">
+          VK
+        </a>{" "}
+        <br />
+        <a href="#" className="href">
+          Youtube
+        </a>{" "}
+        <br />
+        <a href="#" className="href">
+          Instagram
+        </a>
       </div>
     </div>
   );

@@ -32,6 +32,9 @@ export const GET_USER_INFO = gql`
           description
           searchStart
           adress
+          volunteers {
+            id
+          }
           head {
             id
             firstName
