@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)hq7(x1)=be_u-0kd^um2t*^!7_kfd*l_-^6yps-r1iew0*^ck'
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://sbor6578.herokuapp.com/graphql/", "https://www.sbor6578.herokuapp.com/graphql/", "localhost:8000"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',

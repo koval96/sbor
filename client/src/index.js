@@ -15,7 +15,7 @@ import App from "./App";
 import AuthLayer from "./components/auth/AuthLayer";
 import "./static/css/core.css";
 
-const DEV=true
+const DEV=false
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
@@ -40,7 +40,7 @@ const link = from([
   new HttpLink({
     uri: DEV
       ? "http://localhost:8000/graphql/"
-      : "https://piz2a.herokuapp.com/graphql/",
+      : "https://sbor6578.herokuapp.com/graphql/",
     credentials: "include",
   }),
 ]);
