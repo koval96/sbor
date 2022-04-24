@@ -24,6 +24,8 @@ export const GET_USER_INFO = gql`
       }
       operations {
         operation {
+          status
+          imageUrl
           id
           name
           age

@@ -20,6 +20,7 @@ function Courses() {
       setEvents(data.getAllEvents);
       setLocalEvents(data.getAllEvents)
     },
+    fetchPolicy: "cache-and-network",
   });
 
   useEffect(() => {
@@ -59,7 +60,7 @@ function Courses() {
           <div className="operations w-100">
             {localEvents &&
               localEvents.map((event, key) => {
-                return <Course event={event} key={key} />;
+                return <Course event={event} key={key} setEvents={setEvents} />;
               })}
             {localEvents.length == 0 && <p>Ничего нет</p>}
           </div>

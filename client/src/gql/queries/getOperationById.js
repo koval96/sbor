@@ -9,7 +9,9 @@ export const GET_OPERATION_BY_ID = gql`
       age
       description
       searchStart
+      appearance
       adress
+      imageUrl
       head {
         id
         firstName

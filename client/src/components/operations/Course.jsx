@@ -6,7 +6,7 @@ import "../../static/css/courses.css";
 import { JOIN_EVENT } from "../../gql/mutations/joinEvent";
 import { UserContext } from "../auth/AuthLayer";
 
-function Course({ event }) {
+function Course({ event, setEvents }) {
   const [hasJoined, setHasJoined] = useState(false);
   const { user, setUser } = useContext(UserContext);
 
@@ -17,7 +17,7 @@ function Course({ event }) {
   }, [user]);
 
   const [joinEvent, { loading }] = useMutation(JOIN_EVENT, {
-    onCompleted: () => {
+    onCompleted: (data) => {
       setHasJoined(!hasJoined);
     },
   });

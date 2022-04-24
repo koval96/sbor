@@ -1,6 +1,6 @@
 from graphene_django import DjangoObjectType
 
-from main.models import ExtendedUser, Operation, Facility, Volunteer, Event
+from main.models import ExtendedUser, Operation, Facility, Volunteer, Event, News
 
 
 class UserType(DjangoObjectType):
@@ -22,5 +22,9 @@ class FacilityType(DjangoObjectType):
 class EventType(DjangoObjectType):
     class Meta:
         model = Event
+
+class NewsType(DjangoObjectType):
+    class Meta:
+        model = News
 
 

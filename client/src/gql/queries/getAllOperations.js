@@ -10,6 +10,7 @@ export const GET_ALL_OPERATIONS = gql`
       description
       searchStart
       adress
+      imageUrl
       head {
         id
         firstName

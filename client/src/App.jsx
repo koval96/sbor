@@ -13,6 +13,8 @@ import ProtectedRoute from "./components/utils/ProtectedRoute";
 import Register from "./components/pages/Register";
 import ScrollToTop from "./components/utils/ScrollToTop";
 import CreateOperation from "./components/pages/CreateOperation";
+import NewsList from "./components/pages/NewsList";
+import Contacts from "./components/pages/Contacts";
 
 import "./static/css/structure.css";
 
@@ -48,6 +50,12 @@ function App() {
               <ProtectedRoute path="/operations/:id">
                 <AboutOperations />
               </ProtectedRoute>
+              <Route path="/news">
+                <NewsList />
+              </Route>
+              <Route path="/contacts">
+                <Contacts />
+              </Route>
               <Route path="/login">
                 <Login />
               </Route>

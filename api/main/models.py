@@ -37,16 +37,28 @@ class Volunteer(models.Model):
     class Meta:
         ordering = ("-id",)
 
+class News(models.Model):
+    user = models.ForeignKey(ExtendedUser, on_delete=models.DO_NOTHING)
+    title = models.CharField(max_length=100, default="")
+    text = models.TextField()
+
+    class Meta:
+        ordering = ("-id",)
+
 class Operation(models.Model):
     name = models.CharField(max_length=100)
     image_url = models.URLField(default="")
     age = models.IntegerField()
     description = models.TextField()
-    search_start = models.DateField()
+    search_start = models.CharField(max_length=20, default="")
     adress = models.CharField(max_length=100)
+    appearance = models.CharField(max_length=200, default="")
     head = models.ManyToManyField(ExtendedUser, related_name="event_head", blank=True)
     volunteers = models.ManyToManyField(Volunteer, related_name="event_volunteers", blank=True)
     facility = models.ManyToManyField(Facility, related_name="event_facility", blank=True)
     plan = models.TextField(default="")
     coords = models.CharField(max_length=100, default="", blank=True)
     status = models.CharField(max_length=50, default="Не найден")
+
+    class Meta:
+        ordering = ("-id",)

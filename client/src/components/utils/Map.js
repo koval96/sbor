@@ -18,7 +18,7 @@ export const MapDiv = (props) => {
         }}
       >
         <Map state={mapState} modules={["geolocation", "geocode"]}>
-          <Placemark geometry={[56.326887, 44.005986]} />
+          <Placemark geometry={props.coords} />
         </Map>
       </YMaps>
     </div>

@@ -39,6 +39,7 @@ function Operations() {
       setOperations(data.getAllOperations);
       setLocalOperations(data.getAllOperations)
     },
+    fetchPolicy: "cache-and-network",
   });
   return (
     <div className="operations w-100">
