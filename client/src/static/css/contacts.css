@@ -1,4 +1,4 @@
-.info-block {
+
   display: flex;
   flex-direction: row;
 }
@@ -24,3 +24,4 @@
 .social_medias {
   color: #ff2e00;
 }
+

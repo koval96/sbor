@@ -12,11 +12,13 @@ import AboutOperations from "./components/pages/AboutOperation";
 import ProtectedRoute from "./components/utils/ProtectedRoute";
 import Register from "./components/pages/Register";
 import ScrollToTop from "./components/utils/ScrollToTop";
+import NewsCard from "./components/operations/NewsCard"
 import CreateOperation from "./components/pages/CreateOperation";
 import NewsList from "./components/pages/NewsList";
 import Contacts from "./components/pages/Contacts";
 
 import "./static/css/structure.css";
+import News from "./components/operations/News";
 
 function App() {
   const navPanelRef = useRef(0);
@@ -34,16 +36,23 @@ function App() {
           <ScrollToTop />
           <div className="content w-100">
             <Switch>
+              <ProtectedRoute path="/operations" exact>
+                <Operations />
+              </ProtectedRoute>
+            
+              <ProtectedRoute path="/operations/:id">
+                <AboutOperations />
+                </ProtectedRoute>
+
               <ProtectedRoute path="/" exact>
                 {/* <Operations /> */}
                 <Profile />
+
               </ProtectedRoute>
               <ProtectedRoute path="/events">
                 <Courses />
               </ProtectedRoute>
-              <ProtectedRoute path="/operations" exact>
-                <Operations />
-              </ProtectedRoute>
+              
               <ProtectedRoute path="/operations/create">
                 <CreateOperation />
               </ProtectedRoute>

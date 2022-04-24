@@ -14,6 +14,7 @@ class ExtendedUser(AbstractUser):
     events = models.ManyToManyField("Event", related_name="user_events", blank=True)
     phone = models.CharField(max_length=20, default="")
     tg = models.CharField(max_length=100, default="")
+    tg_id = models.CharField(max_length=100, default="", blank=True)
 
     USERNAME_FIELD = "username"
     EMAIL_FIELD = "email"
@@ -62,3 +63,4 @@ class Operation(models.Model):
 
     class Meta:
         ordering = ("-id",)
+        
