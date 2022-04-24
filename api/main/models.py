@@ -14,11 +14,6 @@ class ExtendedUser(AbstractUser):
     age = models.IntegerField(default=0)
     education = models.CharField(max_length=100, null=True)
     type = models.CharField(max_length=10)
-<<<<<<< HEAD
-    operations = models.ManyToManyField("Volunteer", related_name="user_operations", blank=True)
-
-
-=======
     operations = models.ManyToManyField("Volunteer",
                                         related_name="user_operations",
                                         blank=True)
@@ -28,7 +23,6 @@ class ExtendedUser(AbstractUser):
     tg = models.CharField(max_length=100, default="")
     tg_id = models.CharField(max_length=100, default="", blank=True)
     phone = models.CharField(max_length=20, default="")
->>>>>>> 6fac724... demo bot
     USERNAME_FIELD = "username"
     EMAIL_FIELD = "email"
 
@@ -36,11 +30,11 @@ class ExtendedUser(AbstractUser):
 class Facility(models.Model):
     name = models.CharField(max_length=100)
 
-<<<<<<< HEAD
+
 class Course(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-=======
+
 
 class Event(models.Model):
     title = models.CharField(max_length=100)
@@ -51,7 +45,6 @@ class Event(models.Model):
                              on_delete=models.DO_NOTHING,
                              blank=True)
     type = models.CharField(max_length=50, default="")
->>>>>>> 6fac724... demo bot
 
 
 class Volunteer(models.Model):

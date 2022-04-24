@@ -27,11 +27,6 @@ class Register(graphene.Mutation):
     ok = graphene.Boolean()
 
     @classmethod
-<<<<<<< HEAD
-    def mutate(cls, root, info, username, password, first_name, last_name, email):
-        user = ExtendedUser.objects.create(
-            username=username, first_name=first_name, last_name=last_name, email=email)
-=======
     def mutate(cls, root, info, username, password, first_name, last_name,
                email, age, education, tg, phone):
         updates = bot.getUpdates()
@@ -73,7 +68,6 @@ class Register(graphene.Mutation):
                                            tg_id=tg_id,
                                            phone=phone,
                                            education=education)
->>>>>>> 6fac724... demo bot
         user.set_password(password)
         user.save()
         return Register(ok=True)
