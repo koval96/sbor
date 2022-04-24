@@ -13,10 +13,12 @@ import { UserContext } from "../auth/AuthLayer";
 
 import "../../static/css/operations.css";
 import man from "../../static/images/man.svg";
+import { GET_ALL_FACILITIES } from "../../gql/queries/getAllFacilities";
 
 function AboutOperations() {
   const [operation, setOperation] = useState({});
   const [hasJoined, setHasJoined] = useState(false);
+  const [facilities, setFacilities] = useState([]);
   const { id } = useParams();
   const { user, setUser } = useContext(UserContext);
   const [joinOperation, { loading: joinLoading }] = useMutation(
@@ -48,6 +50,11 @@ function AboutOperations() {
     },
     variables: { id },
     fetchPolicy: "cache-and-network",
+  });
+  const { loading: loadingFacilities } = useQuery(GET_ALL_FACILITIES, {
+    onCompleted: (data) => {
+      setFacilities(data.getAllFacilities);
+    },
   });
   useEffect(() => {
     if (user.operations) {
@@ -187,6 +194,7 @@ function AboutOperations() {
                         operation={operation}
                         volunteer={volunteer}
                         setOperation={setOperation}
+                        facilities={facilities}
                         key={idx}
                       />
                     );

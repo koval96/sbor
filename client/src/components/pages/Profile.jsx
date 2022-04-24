@@ -1,16 +1,28 @@
 import { useState, useContext } from "react";
+import { useQuery } from "@apollo/client";
 
 import Operation from "../operations/Operation";
 import Course from "../operations/Course";
+import Loader from "../utils/Loader";
 
 import { UserContext } from "../auth/AuthLayer";
 
 import man from "../../static/images/man.svg";
 import "../../static/css/profile.css";
+import { GET_USER_INFO } from "../../gql/queries/getUserInfo";
 
 function Profile() {
   const [filterType, setFilterType] = useState("operations");
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+  const { loading } = useQuery(GET_USER_INFO, {
+    onCompleted: (data) => {
+      setUser(data.getUserInfo);
+    },
+    variables: {
+      username: user.username,
+    },
+    fetchPolicy: "cache-and-network",
+  });
   return (
     // <div className="">
     //   <div className="profile_header">
@@ -50,6 +62,7 @@ function Profile() {
     //   </div>
     // </div>
     <div>
+      <Loader loading={loading} />
       <div className="about_operation_1">
         <img src={man} width="120px" />
         <div className="about_info">
@@ -108,10 +121,14 @@ function Profile() {
       )}
       {filterType == "events" && user.events && (
         <>
-          {user.events.filter(e => e.type == "course").map((event, idx) => {
-            return <Course event={event} key={idx} />;
-          })}
-          {user.events.filter(e => e.type == "course").length == 0 && <p>Курсов нет</p>}
+          {user.events
+            .filter((e) => e.type == "course")
+            .map((event, idx) => {
+              return <Course event={event} key={idx} />;
+            })}
+          {user.events.filter((e) => e.type == "course").length == 0 && (
+            <p>Курсов нет</p>
+          )}
         </>
       )}
     </div>

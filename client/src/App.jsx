@@ -53,7 +53,7 @@ function App() {
                 <Courses />
               </ProtectedRoute>
               
-              <ProtectedRoute path="/operations/create">
+              <ProtectedRoute path="/operation/create">
                 <CreateOperation />
               </ProtectedRoute>
               <ProtectedRoute path="/operations/:id">

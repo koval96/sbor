@@ -33,6 +33,7 @@ class Volunteer(models.Model):
     user = models.ForeignKey(ExtendedUser, on_delete=models.DO_NOTHING)
     status = models.CharField(max_length=100, default="На поисках")
     date_joined = models.DateField(auto_now_add=True)
+    facilities = models.ManyToManyField(Facility, related_name="volunteer_facility", blank=True)
     operation = models.ForeignKey("Operation", on_delete=models.DO_NOTHING, null=True, blank=True)
 
     class Meta:

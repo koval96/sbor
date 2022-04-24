@@ -27,6 +27,10 @@ export const GET_OPERATION_BY_ID = gql`
           type
         }
         status
+        facilities {
+          id
+          name
+        }
       }
       facility {
         name

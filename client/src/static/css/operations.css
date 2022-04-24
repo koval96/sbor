@@ -91,6 +91,27 @@
   justify-content: space-between;
 }
 
+.facility__container {
+  position: absolute;
+  width: 100%;
+  top: 40px;
+  left: -4px;
+  border-radius: 4px;
+  background: #fff;
+  padding: 8px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.facility__item {
+  justify-content: space-between;
+}
+
+.facility__item input {
+  margin-top: 6px;
+  height: 16px;
+  width: 16px;
+}
+
 @media (max-width: 768px) {
   .missing__name_container {
     display: block;

@@ -15,7 +15,7 @@ import App from "./App";
 import AuthLayer from "./components/auth/AuthLayer";
 import "./static/css/core.css";
 
-const DEV=false
+const DEV=true
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {

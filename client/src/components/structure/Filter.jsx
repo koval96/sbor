@@ -90,7 +90,7 @@ function Filter({ objects, setObjects, type, activeOption, setActiveOption }) {
           setActiveOption={setActiveOption}
         />
         {type == "operations" && user.type == "admin" && (
-          <Link className="non_link" to={"/operations/create"}>
+          <Link className="non_link" to={"/operation/create"}>
             <button className="default__btn default__btn_outline">
               Создать операцию
             </button>

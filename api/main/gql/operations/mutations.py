@@ -3,7 +3,7 @@ import graphene
 import graphql_jwt
 import json
 
-from main.models import ExtendedUser, Operation, Volunteer
+from main.models import ExtendedUser, Facility, Operation, Volunteer
 from main.gql.types import OperationType, VolunteerType
 
 
@@ -60,6 +60,25 @@ class ChangeOperationStatus(graphene.Mutation):
         operation.save()
         return ChangeOperationStatus(operation=operation)
 
+class ChangeFacility(graphene.Mutation):
+    class Arguments:
+        id_vol = graphene.ID(required=True)
+        id_fac = graphene.ID(required=True)
+
+    volunteers = graphene.List(VolunteerType)
+
+    @classmethod
+    def mutate(cls, root, info, id_vol, id_fac):
+        volunteer = Volunteer.objects.get(id=id_vol)
+        facility = Facility.objects.get(id=id_fac)
+        if facility in volunteer.facilities.all():
+            volunteer.facilities.remove(facility)
+        else:
+            volunteer.facilities.add(facility)
+
+        volunteers = volunteer.operation.volunteers
+        return ChangeFacility(volunteers=volunteers.all())
+
 
 class CreateOperation(graphene.Mutation):
     class Arguments:
@@ -93,3 +112,4 @@ class OperationsMutations(graphene.ObjectType):
     change_volunteer_status = ChangeVolunteerStatus.Field()
     change_operation_status = ChangeOperationStatus.Field()
     create_operation = CreateOperation.Field()
+    change_facility = ChangeFacility.Field()
