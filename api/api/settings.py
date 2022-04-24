@@ -5,12 +5,10 @@ from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 SECRET_KEY = 'django-insecure-)hq7(x1)=be_u-0kd^um2t*^!7_kfd*l_-^6yps-r1iew0*^ck'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -22,6 +20,8 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'corsheaders',
     'graphene_django',
+    'django_tgbot',
+    'volounters_nn_bot',
     'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
 ]
 
@@ -57,7 +57,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'api.wsgi.application'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -65,22 +64,24 @@ DATABASES = {
     }
 }
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 LANGUAGE_CODE = 'en-us'
 
@@ -92,25 +93,19 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 GRAPHENE = {
     "SCHEMA": "main.schema.schema",
-    'MIDDLEWARE': [
-        'graphql_jwt.middleware.JSONWebTokenMiddleware'
-    ]
+    'MIDDLEWARE': ['graphql_jwt.middleware.JSONWebTokenMiddleware']
 }
 
 AUTHENTICATION_BACKENDS = [
@@ -121,8 +116,7 @@ AUTHENTICATION_BACKENDS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://www.sbor6578.netllify.app",
+    "http://localhost:3000", "https://www.sbor6578.netllify.app",
     "https://sbor6578.netlify.app"
 ]
 
